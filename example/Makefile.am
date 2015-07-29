@@ -7,7 +7,7 @@
 # Because a.out is only a sample program we don't want it to be installed.
 # The 'noinst_' prefix indicates that the following targets are not to be
 # installed.
-noinst_PROGRAMS=server
+noinst_PROGRAMS=server syncli
 
 #######################################
 # Build information for each executable. The variable name is derived
@@ -24,3 +24,12 @@ server_LDFLAGS = $(LIBEV_LIBS) $(top_builddir)/src/libjsonrpcc.la
 # Compiler options for a.out
 server_CPPFLAGS = $(LIBEV_CFLAGS) -I$(top_srcdir)/include
 
+#######################################
+# Sources for the a.out 
+syncli_SOURCES= syncli.c
+
+# Linker options for a.out
+syncli_LDFLAGS = $(LIBEV_LIBS) $(top_builddir)/src/libjsonrpcccli.la
+
+# Compiler options for a.out
+syncli_CPPFLAGS = $(LIBEV_CFLAGS) -I$(top_srcdir)/include
